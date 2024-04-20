@@ -11,14 +11,14 @@
         custom-r-version = import nixpkgs { 
           inherit system; 
           overlays = [ 
-            final: prev:
+            (final: prev:
             {
               rPackages = prev.rPackages.override {
                 overrides = {
                   version = "4.3.1";
                 };
               };
-            }
+            })
           ]; 
         };
         rpkgs = builtins.attrValues {
