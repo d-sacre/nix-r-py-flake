@@ -8,12 +8,7 @@
     devShell.x86_64-linux =
       let
         system = "x86_64-linux";
-        # pkgs = nixpkgs.legacyPackages.${system}; # sets/limits??? (indirectly) the Development System to x86_64-linux
-        pkgs = mkPkgs (import nixpkgs) [
-          (_: super: {
-            R = super.R.overrideAttrs { version = "4.1.3"; };
-          })
-        ];
+        pkgs = nixpkgs.legacyPackages.${system}; # sets/limits??? (indirectly) the Development System to x86_64-linux
         rpkgs = builtins.attrValues {
           inherit (pkgs.rPackages) forecast lubridate tidyr stringr forcats testthat ggplot2 plotly gridExtra naniar yaml glue caret prophet readxl feather tidyverse shiny;
         };
