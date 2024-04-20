@@ -17,6 +17,7 @@
         nativeBuildInputs = [ # for the system the Developement Environment is running on!
           rpkgs
           systemPackages
+          pkgs.rstudio
         ];
       };
   };
