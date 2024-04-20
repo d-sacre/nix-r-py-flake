@@ -8,8 +8,7 @@
       let
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # sets/limits??? (indirectly) the Development System to x86_64-linux
         rpkgs = builtins.attrValues {
-          inherit (pkgs.rPackages) forecast lubridate tidyr stringr forcats testthat ggplot2 plotly gridExtra naniar yaml glue caret prophet readxl feath
-          er tidyverse shiny;
+          inherit (pkgs.rPackages) forecast lubridate tidyr stringr forcats testthat ggplot2 plotly gridExtra naniar yaml glue caret prophet readxl feather tidyverse shiny;
         };
         systemPackages = builtins.attrValues {
           inherit (pkgs) R glibcLocales nix ;
