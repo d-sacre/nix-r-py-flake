@@ -15,7 +15,7 @@
             {
               rPackages = prev.rPackages.override {
                 overrides = {
-                  version = "4.3.1";
+                  version = "4.1.3";
                 };
               };
             })
@@ -35,7 +35,7 @@
           naniar 
           yaml 
           glue 
-          # caret 
+          caret 
           prophet 
           readxl 
           feather 
