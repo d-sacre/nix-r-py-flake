@@ -8,19 +8,19 @@
       let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system}; # sets/limits??? (indirectly) the Development System to x86_64-linux
-        custom-r-version = import nixpkgs { 
-          inherit system; 
-          overlays = [ 
-            (final: prev:
-            {
-              rPackages = prev.rPackages.override {
-                overrides = {
-                  version = "4.1.3";
-                };
-              };
-            })
-          ]; 
-        };
+        # custom-r-version = import nixpkgs { 
+        #   inherit system; 
+        #   overlays = [ 
+        #     (final: prev:
+        #     {
+        #       rPackages = prev.rPackages.override {
+        #         overrides = {
+        #           version = "4.1.3";
+        #         };
+        #       };
+        #     })
+        #   ]; 
+        # };
         # rpkgs = builtins.attrValues {
         #   inherit (custom-r-version) 
         #   # forecast 
@@ -42,14 +42,16 @@
         #   tidyverse 
         #   shiny;
         # };
-        systemPackages = builtins.attrValues {
-          inherit (custom-r-version) R glibcLocales nix ;
-        };
+        # systemPackages = builtins.attrValues {
+        #   inherit (custom-r-version) R glibcLocales nix ;
+        # };
       in pkgs.mkShell {
         nativeBuildInputs = [ # for the system the Developement Environment is running on!
           # rpkgs
-          systemPackages
-          pkgs.rstudio
+          # systemPackages
+          pkgs.rstudioWrapper.override {
+            packages = with pkgs.rPackages; [ dplyr ggplot2 reshape2 ];
+          }
         ];
       };
   };
