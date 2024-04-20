@@ -21,33 +21,33 @@
             })
           ]; 
         };
-        rpkgs = builtins.attrValues {
-          inherit (custom-r-version) 
-          # forecast 
-          lubridate 
-          tidyr 
-          stringr 
-          # forcats 
-          testthat 
-          ggplot2 
-          plotly 
-          gridExtra 
-          naniar 
-          yaml 
-          glue 
-          # caret 
-          prophet 
-          readxl 
-          feather 
-          tidyverse 
-          shiny;
-        };
+        # rpkgs = builtins.attrValues {
+        #   inherit (custom-r-version) 
+        #   # forecast 
+        #   lubridate 
+        #   tidyr 
+        #   stringr 
+        #   # forcats 
+        #   testthat 
+        #   # ggplot2 
+        #   plotly 
+        #   gridExtra 
+        #   naniar 
+        #   yaml 
+        #   glue 
+        #   # caret 
+        #   prophet 
+        #   readxl 
+        #   feather 
+        #   tidyverse 
+        #   shiny;
+        # };
         systemPackages = builtins.attrValues {
           inherit (custom-r-version) R glibcLocales nix ;
         };
       in pkgs.mkShell {
         nativeBuildInputs = [ # for the system the Developement Environment is running on!
-          rpkgs
+          # rpkgs
           systemPackages
           pkgs.rstudio
         ];
