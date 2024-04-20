@@ -27,7 +27,7 @@
           lubridate 
           tidyr 
           stringr 
-          forcats 
+          # forcats 
           testthat 
           ggplot2 
           plotly 
@@ -35,7 +35,7 @@
           naniar 
           yaml 
           glue 
-          caret 
+          # caret 
           prophet 
           readxl 
           feather 
