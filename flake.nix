@@ -23,7 +23,7 @@
         };
         rpkgs = builtins.attrValues {
           inherit (custom-r-version) 
-          forecast 
+          # forecast 
           lubridate 
           tidyr 
           stringr 
